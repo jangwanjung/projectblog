@@ -1,0 +1,34 @@
+server:
+  port: 8000  #포트설정
+  servlet:
+    context-path: /  #기본 경로를 /blog로 설정한다  ex)http://localhost:8000/blog
+    encoding:
+      charset: UTF-8  #UTF-8로 인코딩한다는뜻이다   안건드려도된다
+      enabled: true # true면 인코딩을 활성화한다  안건드려도된다
+      force: true  #요청과 응답 모두에대해 강제로 인코딩을 설정한다  안건드려도된다
+    
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/views/  #뷰 리졸버가 뷰이름 앞에 붙일접두사를 /WEB-INF/views/로 설정한다
+      suffix: .jsp  #뷰 이름 뒤에 붙일 접미사를 .jsp로 설정한다
+      
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/projectblog?serverTimezone=Asia/Seoul
+    username: jang   #데이터베이스연결 사용자이름을 cos로한다
+    password: 8941  #데이터베이스 연결 비밀번호를 cos1234로 한다
+    
+  jpa:
+    open-in-view: true
+    hibernate:
+      ddl-auto: create   #데이터베이스를 생성한다 추후 update로 변경해주자
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: true
+    properties:
+      hibernate.format_sql: true
+
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
