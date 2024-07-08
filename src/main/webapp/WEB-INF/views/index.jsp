@@ -4,14 +4,14 @@
 	<br>
 	<div class="card">
 		<div class="card-body">
-			<h2>글제목</h2>
+			<h2>글제목1</h2>
 			<a href="#" class="btn btn-primary">See Profile</a>
 		</div>
 	</div>
 	<br>
 	<div class="card">
 		<div class="card-body">
-			<h2>글제목</h2>
+			<h2>글제목2</h2>
 			<a href="#" class="btn btn-primary">See Profile</a>
 		</div>
 	</div>
