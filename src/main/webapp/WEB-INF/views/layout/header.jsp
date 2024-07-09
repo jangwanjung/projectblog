@@ -1,4 +1,9 @@
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<sec:authorize access="isAuthenticated()">
+  <sec:authentication property="principal" var="principal"/>
+</sec:authorize>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,12 +25,26 @@
       <li class="nav-item">
         <a class="nav-link active" href="/">Blog</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/auth/loginForm">로그인</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/auth/joinForm">회원가입</a>
-      </li>
+      <c:if test="${empty principal}">
+        <li class="nav-item">
+          <a class="nav-link" href="/auth/loginForm">로그인</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/auth/joinForm">회원가입</a>
+        </li>
+      </c:if>
+      <c:if test="${not empty principal}">
+        <li class="nav-item">
+          <a class="nav-link" href="/auth/loginForm">글쓰기</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/auth/joinForm">회원정보</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/auth/joinForm">로그아웃</a>
+        </li>
+      </c:if>
+
     </ul>
   </div>
 </nav>

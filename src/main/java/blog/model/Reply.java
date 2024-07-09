@@ -2,9 +2,9 @@ package blog.model;
 
 import java.sql.Timestamp;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Reply {

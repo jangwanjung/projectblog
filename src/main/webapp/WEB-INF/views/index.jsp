@@ -5,7 +5,7 @@
 	<div class="card">
 		<div class="card-body">
 			<h2>글제목1</h2>
-			<a href="#" class="btn btn-primary">See Profile</a>
+			<a href="/board" class="btn btn-primary">See Profile</a>
 		</div>
 	</div>
 	<br>
