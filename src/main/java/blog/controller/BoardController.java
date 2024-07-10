@@ -6,6 +6,7 @@ import blog.service.BoardService;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -23,7 +24,7 @@ public class BoardController {
     private BoardService boardService;
 
     @GetMapping("/")
-    public String index(Model model , @PageableDefault Pageable pageable) {
+    public String index(Model model , @PageableDefault(sort = "id",direction = Sort.Direction.DESC) Pageable pageable) {
         model.addAttribute("boards",boardService.글목록(pageable));
         return "index";
     }
