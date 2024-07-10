@@ -31,4 +31,9 @@ public class BoardService {
         board.setUser(user);
         boardRepository.save(board);
     }
+
+    public void 글삭제(int id){
+        boardRepository.deleteById(id);
+
+    }
 }

@@ -2,9 +2,10 @@
 <%@ include file="../layout/header.jsp"%>
 <br>
 <div class="container">
-    <button type="button" class="btn btn-secondary">Secondary</button>
-    <button type="button" class="btn btn-warning">Warning</button>
-    <button type="button" class="btn btn-danger">Danger</button>
+    <input type="hidden" id="id" value="${board.id}">
+    <button type="button" class="btn btn-secondary">돌아가기</button>
+    <button type="button" class="btn btn-warning">수정</button>
+    <button id="btn-delete" type="button" class="btn btn-danger">삭제</button>
     <br>
     글 번호 : ${board.id} 작성자 : ${board.user.username}
     <hr>
@@ -12,5 +13,5 @@
     <hr>
     ${board.content}
 </div>
-
+<script src="/js/board.js"></script>
 <%@ include file="../layout/footer.jsp"%>
