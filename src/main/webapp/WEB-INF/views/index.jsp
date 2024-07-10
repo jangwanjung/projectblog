@@ -6,7 +6,7 @@
 		<div class="card">
 			<div class="card-body">
 				<h2>${board.title}</h2>
-				<a href="/board/${board.id}" class="btn btn-primary">See Profile</a>
+				<a href="/board/${board.id}" class="btn btn-primary">글상세보기</a>
 			</div>
 		</div>
 		<br>
