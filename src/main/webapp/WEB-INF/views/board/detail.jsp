@@ -27,7 +27,18 @@
         <ul class="list-group">
             <li class="list-group-item list-group-item-secondary"  >댓글리스트</li>
             <c:forEach var="reply" items="${board.replys}">
-                <li class="list-group-item">${reply.content}</li>
+                <div>
+                    <li class="list-group-item">
+                        <div style="display: flex; justify-content: space-between;">
+                            <div>
+                                    ${reply.content}
+                            </div>
+                            <div>
+                                작성자 : ${reply.user.username} <button>삭제</button>
+                            </div>
+                        </div>
+                    </li>
+                </div>
             </c:forEach>
 
         </ul>
