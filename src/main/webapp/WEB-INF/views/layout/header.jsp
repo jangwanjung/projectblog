@@ -15,6 +15,8 @@
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 </head>
 <body>
 
@@ -35,13 +37,13 @@
       </c:if>
       <c:if test="${not empty principal}">
         <li class="nav-item">
-          <a class="nav-link" href="/auth/loginForm">글쓰기</a>
+          <a class="nav-link" href="/board/saveForm">글쓰기</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/auth/joinForm">회원정보</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/auth/joinForm">로그아웃</a>
+          <a class="nav-link" href="/logout">로그아웃</a>
         </li>
       </c:if>
 

@@ -18,10 +18,12 @@ public class UserService {
     private BCryptPasswordEncoder encoder;
 
     public void 회원가입(User user){
+
         String nowPassword = user.getPassword();
         String endPassword = encoder.encode(nowPassword);
         user.setPassword(endPassword);
 
         userRepository.save(user);
+
     }
 }

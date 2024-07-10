@@ -2,27 +2,15 @@
 <%@ include file="layout/header.jsp"%>
 <div class="container">
 	<br>
-	<div class="card">
-		<div class="card-body">
-			<h2>글제목1</h2>
-			<a href="/board" class="btn btn-primary">See Profile</a>
+	<c:forEach var="board" items="${boards.content}">
+		<div class="card">
+			<div class="card-body">
+				<h2>${board.title}</h2>
+				<a href="/board/${board.id}" class="btn btn-primary">See Profile</a>
+			</div>
 		</div>
-	</div>
-	<br>
-	<div class="card">
-		<div class="card-body">
-			<h2>글제목2</h2>
-			<a href="#" class="btn btn-primary">See Profile</a>
-		</div>
-	</div>
-	<br>
-	<div class="card">
-		<div class="card-body">
-			<h2>글제목</h2>
-			<a href="#" class="btn btn-primary">See Profile</a>
-		</div>
-	</div>
-	<br>
+		<br>
+	</c:forEach>
 	<ul class="pagination justify-content-center">
 		<li class="page-item"><a class="page-link" href="#">Previous</a></li>
 		<li class="page-item"><a class="page-link" href="#">1</a></li>
