@@ -10,7 +10,7 @@ import java.sql.Timestamp;
 
 import javax.persistence.*;
 
-
+@Data
 @Entity
 public class Reply {
 	
@@ -19,10 +19,12 @@ public class Reply {
 	private int id;
 	
 	private String content;
-	
+
+	@JoinColumn(name = "boardId")
 	@ManyToOne //여러개의 댓글은 하나의 보드에 있을수있다
 	private Board board;
-	
+
+	@JoinColumn(name = "userId")
 	@ManyToOne //여러개의 댓글은 한사람을 쓸수있다
 	private User user;
 

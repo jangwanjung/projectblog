@@ -8,6 +8,9 @@ let index={
         }),
         $("#btn-update").on("click", ()=>{
             this.update();
+        }),
+        $("#btn-reply-save").on("click", ()=>{
+            this.replysave();
         })
 
     },
@@ -63,6 +66,27 @@ let index={
         }).done(function (resp){
             alert("글수정이 완료되었습니다");
             location.href="/board/"+id;
+        }).fail(function (error){
+            alert(JSON.stringify(error));
+        });
+    },
+
+    replysave: function (){
+        let data = {
+            content: $("#reply-conetent").val()
+        };
+        let boardid = $("#boardid").val();
+        console.log(data);
+        console.log(boardid);
+        $.ajax({
+            type: "POST",
+            url: `/api/board/${boardid}/reply`,
+            data: JSON.stringify(data),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json"
+        }).done(function (resp){
+            alert("댓글쓰기가 성공하였습니다");
+            location.href=`/board/${boardid}`;
         }).fail(function (error){
             alert(JSON.stringify(error));
         });

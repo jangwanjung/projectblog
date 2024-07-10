@@ -15,6 +15,23 @@
     <h1>${board.title}</h1>
     <hr>
     ${board.content}
-</div>
+    <hr>
+    <div>
+        <input type="hidden" id="boardid" value="${board.id}">
+        <textarea class="form-control" rows="5" id="reply-conetent"></textarea>
+        <br>
+        <button id="btn-reply-save" class="btn btn-primary">등록</button>
+    </div>
+    <br>
+    <div>
+        <ul class="list-group">
+            <li class="list-group-item list-group-item-secondary"  >댓글리스트</li>
+            <c:forEach var="reply" items="${board.replys}">
+                <li class="list-group-item">${reply.content}</li>
+            </c:forEach>
+
+        </ul>
+    </div>
+
 <script src="/js/board.js"></script>
 <%@ include file="../layout/footer.jsp"%>

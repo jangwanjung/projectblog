@@ -1,8 +1,10 @@
 package blog.service;
 
 import blog.model.Board;
+import blog.model.Reply;
 import blog.model.User;
 import blog.repository.BoardRepository;
+import blog.repository.ReplyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.data.domain.Page;
@@ -16,6 +18,9 @@ public class BoardService {
 
     @Autowired
     private BoardRepository boardRepository;
+
+    @Autowired
+    private ReplyRepository replyRepository;
 
 
     public Page<Board> 글목록 (Pageable pageable) {
@@ -45,5 +50,14 @@ public class BoardService {
         });
         board.setTitle(requestboard.getTitle());
         board.setContent(requestboard.getContent());
+    }
+
+    public void 댓글쓰기(int boardid, Reply reply,User user){
+        Board board = boardRepository.findById(boardid).orElseThrow(()->{
+            return new IllegalArgumentException("보드아이디를 찾을수 없습니다");
+        });
+        reply.setBoard(board);
+        reply.setUser(user);
+        replyRepository.save(reply);
     }
 }
