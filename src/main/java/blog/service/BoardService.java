@@ -60,4 +60,9 @@ public class BoardService {
         reply.setUser(user);
         replyRepository.save(reply);
     }
+
+    public void 댓글삭제(int replyid){
+       replyRepository.deleteById(replyid);
+
+    }
 }

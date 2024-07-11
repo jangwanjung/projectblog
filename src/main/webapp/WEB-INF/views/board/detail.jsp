@@ -34,7 +34,11 @@
                                     ${reply.content}
                             </div>
                             <div>
-                                작성자 : ${reply.user.username} <button>삭제</button>
+                                작성자 : ${reply.user.username}
+                                <c:if test="${principal.user.id==reply.user.id}">
+                                    <input type="hidden" id="replyid" value="${reply.id}">
+                                    <button id="btn-reply-delete">삭제</button>
+                                </c:if>
                             </div>
                         </div>
                     </li>
